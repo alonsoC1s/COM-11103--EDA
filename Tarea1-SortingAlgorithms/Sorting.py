@@ -14,7 +14,8 @@ class Movie:
         
     def __str__(self):
         return "{" + self.id.__str__() + ", " + self.year.__str__() + ", " + self.name.__str__() + "}"
-    
+
+
 class Sorting:
     
     def swap(self, i, j, arr):
@@ -67,9 +68,9 @@ class Sorting:
             else:
                 arr[idx] = R[j]
                 j = j + 1
-                
-arr = [Movie(1, 2, 'gola'), Movie(2, 3, 'thoa'), Movie(-1, 5, 'gakj')]
 
+
+arr = [Movie(1, 2, 'gola'), Movie(2, 3, 'thoa'), Movie(-1, 5, 'gakj')]
 Sorting().mergesort(arr)
 for x in arr:
     print (x);
