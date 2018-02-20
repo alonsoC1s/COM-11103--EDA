@@ -10,8 +10,8 @@ class Sorting:
         comparisons = 0
         for i in range(len(arr)):
             for j in range(i + 1, len(arr)):
-                comparisons = comparisons + 1
-                if arr[j].__eq__(arr[i]) < 0:
+                comparisons += 1
+                if arr[j] < arr[i]:
                     self.swap(i, j, arr)
         return comparisons
 
@@ -22,13 +22,13 @@ class Sorting:
         idx = l
         self.swap(l, random.randint(l, r), arr)
         for i in range(l, r):
-            comparisons = comparisons + 1
-            if arr[i].__eq__(arr[r]) < 0:
+            comparisons += 1
+            if arr[i] < arr[r]:
                 self.swap(i, idx, arr)
-                idx = idx + 1
+                idx += 1
         self.swap(r, idx, arr)
-        comparisons = comparisons + self.__quicksort(l, idx - 1, arr)
-        comparisons = comparisons + self.__quicksort(idx + 1, r, arr)
+        comparisons += self.__quicksort(l, idx - 1, arr)
+        comparisons += self.__quicksort(idx + 1, r, arr)
         return comparisons
 
     def quicksort(self, arr):
@@ -38,11 +38,11 @@ class Sorting:
         comparisons = 0
         for i in range(len(arr)):
             j = i
-            comparisons = comparisons + 1
-            while j>0 and arr[j].__eq__(arr[j-1]) < 0:
+            comparisons += 1
+            while j > 0 and arr[j] < arr[j-1]:
                 self.swap(j, j-1, arr)
                 j = j - 1
-                comparisons = comparisons + 1
+                comparisons += 1
         return comparisons
 
     def mergesort(self, arr):
@@ -51,16 +51,16 @@ class Sorting:
             return 0
         L = arr[0:int(len(arr)/2)]
         R = arr[int(len(arr)/2):len(arr)]
-        comparisons = comparisons + self.mergesort(L)
-        comparisons = comparisons + self.mergesort(R)
+        comparisons += self.mergesort(L)
+        comparisons += self.mergesort(R)
         i = 0
         j = 0
         for idx in range(len(arr)):
             comparisons = comparisons + 1
-            if j >= len(R) or (i < len(L) and L[i].__eq__(R[j]) < 0):
+            if j >= len(R) or (i < len(L) and L[i] < R[j]):
                 arr[idx] = L[i]
-                i = i + 1
+                i += 1
             else:
                 arr[idx] = R[j]
-                j = j + 1
+                j += 1
         return comparisons

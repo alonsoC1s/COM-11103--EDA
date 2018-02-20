@@ -4,7 +4,7 @@ class Movie:
         self.year = year
         self.name = name
 
-    def __eq__(self, other):
+    def __lt__(self, other):
         if self.id < other.id:
             return -1
         else:
