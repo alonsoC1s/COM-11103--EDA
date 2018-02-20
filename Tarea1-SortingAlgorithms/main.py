@@ -4,7 +4,6 @@ from plotly.graph_objs import Scatter, Figure, Layout
 from Sorting import *
 from Movie import *
 
-
 sorting = Sorting()
 sorting_algorithms = [('mergesort', sorting.mergesort), ('quicksort', sorting.quicksort),
                       ('bubblesort', Sorting().bubblesort), ('selectionsort', Sorting().selectionsort)]
@@ -18,7 +17,6 @@ for line in file:
 
 def run_sorting_algorithms(arr, namePlot):
     x_axis = [10, 100, 1000, 2000, 5000, 10000, 12000, 15000, 17000]
-
     data_time = []
     data_comparisons = []
 
@@ -36,12 +34,13 @@ def run_sorting_algorithms(arr, namePlot):
     plotly.offline.plot({
         'data': data_time,
         'layout': Layout(title=namePlot, showlegend=True, xaxis=dict(title='Número de datos'), yaxis=dict(title='Tiempo (s)'))
-    }, filename='movies_time_{}.html'.format(namePlot), image='png', image_filename='movies_time_{}'.format(namePlot))
+    }, filename='movies_time_{}.html'.format(namePlot))
 
     plotly.offline.plot({
         'data': data_comparisons,
         'layout': Layout(title=namePlot, showlegend=True, xaxis=dict(title='Número de datos'), yaxis=dict(title='Número de comparaciones'))
-    }, filename='movies_number_comparisons_{}.html'.format(namePlot), image='png', image_filename='movies_number_comparisons'.format(namePlot))
+    }, filename='movies_number_comparisons_{}.html'.format(namePlot))
+
 
 movies.sort()
 run_sorting_algorithms(movies, 'datos_ordenados')
