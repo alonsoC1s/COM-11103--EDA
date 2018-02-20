@@ -1,0 +1,37 @@
+DATOS ALEATORIOS
+
+Para 10 elementos:
+mergesort time: 6.0689738882398457e-05, comparisons: 34
+quicksort time: 5.2211025362063393e-05, comparisons: 20
+bubblesort time: 3.971607912156962e-05, comparisons: 45
+selectionsort time: 3.0791117521216836e-05, comparisons: 32
+
+Para 100 elementos:
+mergesort time: 0.0007969990709114973, comparisons: 672
+quicksort time: 0.0007528205109897516, comparisons: 613
+bubblesort time: 0.003606576982702532, comparisons: 4950
+selectionsort time: 0.002642234881784421, comparisons: 2604
+
+Para 1000 elementos:
+mergesort time: 0.011714904596622973, comparisons: 9976
+quicksort time: 0.012096446705038049, comparisons: 11648
+bubblesort time: 0.3847952569184071, comparisons: 499500
+selectionsort time: 0.27219704887219726, comparisons: 248796
+
+Para 10000 elementos:
+mergesort time: 0.1485376896665902, comparisons: 133616
+quicksort time: 0.15435096340498, comparisons: 157745
+bubblesort time: 41.4756245911252, comparisons: 49995000
+selectionsort time: 29.024553461858723, comparisons: 25223964
+
+Para 15000 elementos:
+mergesort time: 0.23280583835287416, comparisons: 208616
+quicksort time: 0.2453949429382618, comparisons: 243357
+bubblesort time: 98.45457506919078, comparisons: 112492500
+selectionsort time: 67.6810548947613, comparisons: 56446717
+
+Para 17500 elementos:
+mergesort time: 0.2787992892160389, comparisons: 247232
+quicksort time: 0.2911282311707737, comparisons: 300656
+bubblesort time: 135.3518331424879, comparisons: 153116250
+selectionsort time: 91.67465837478238, comparisons: 76858164
