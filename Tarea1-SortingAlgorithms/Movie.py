@@ -5,10 +5,7 @@ class Movie:
         self.name = name
 
     def __lt__(self, other):
-        if self.id < other.id:
-            return -1
-        else:
-            return 1
+        return self.id < other.id
 
     def __str__(self):
         return "{" + self.id.__str__() + ", " + self.year.__str__() + ", " + self.name.__str__() + "}"
