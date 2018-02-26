@@ -7,7 +7,6 @@ class AVLTree:
         if len(args) == 1:
             for x in args[0]:
                 self.insert(x)
-                self.print()
 
     def height(self, node):
         if node is None:
