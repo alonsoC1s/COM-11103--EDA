@@ -7,6 +7,7 @@ class AVLTree:
         if len(args) == 1:
             for x in args[0]:
                 self.insert(x)
+                self.print()
 
     def height(self, node):
         if node is None:
@@ -137,3 +138,23 @@ class AVLTree:
 
     def inorder(self):
         return self._inorder(self.root)
+
+    def print(self):
+        print('AVL Tree: ')
+        queue = [[self.root], []]
+        h = self.height(self.root)
+        act = 0
+        sig = 1
+        for i in range(h):
+            level = []
+            for nodo in queue[act]:
+                if nodo is not None:
+                    level += [nodo.key]
+                    queue[sig] += [nodo.left, nodo.right]
+                else:
+                    level += ['$']
+                    queue[sig] += [None, None]
+            queue[act] = []
+            print(level)
+            act, sig = sig, act
+        print()
