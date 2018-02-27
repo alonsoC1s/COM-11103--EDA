@@ -138,22 +138,23 @@ class AVLTree:
     def inorder(self):
         return self._inorder(self.root)
 
-    def print(self):
-        print('AVL Tree: ')
+    def __str__(self):
+        st = "AVL Tree {\n"
         queue = [[self.root], []]
         h = self.height(self.root)
         act = 0
         sig = 1
         for i in range(h):
-            level = []
+            spaces = int(pow(2, (h-i)))
             for nodo in queue[act]:
                 if nodo is not None:
-                    level += [nodo.key]
+                    st += " " * spaces + str(nodo.key) + " " * (spaces-1)
                     queue[sig] += [nodo.left, nodo.right]
                 else:
-                    level += ['$']
+                    st += " " * spaces + "$" + " " * (spaces-1)
                     queue[sig] += [None, None]
             queue[act] = []
-            print(level)
+            st += "\n"
             act, sig = sig, act
-        print()
+        st += "}"
+        return st
