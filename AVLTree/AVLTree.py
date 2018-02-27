@@ -7,6 +7,7 @@ class AVLTree:
         if len(args) == 1:
             for x in args[0]:
                 self.insert(x)
+                print(self)
 
     def height(self, node):
         if node is None:
@@ -140,21 +141,29 @@ class AVLTree:
 
     def __str__(self):
         st = "AVL Tree {\n"
+        values = ""
+        balance = ""
         queue = [[self.root], []]
         h = self.height(self.root)
         act = 0
         sig = 1
         for i in range(h):
             spaces = int(pow(2, (h-i)))
+            values += "\t\t"
+            balance += '\t\t'
             for nodo in queue[act]:
                 if nodo is not None:
-                    st += " " * spaces + str(nodo.key) + " " * (spaces-1)
+                    values += " "*spaces + str(nodo.key) + " "*(spaces-1)
+                    balance += " "*spaces + str(self.fe(nodo)) + " "*(spaces-1)
                     queue[sig] += [nodo.left, nodo.right]
                 else:
-                    st += " " * spaces + "$" + " " * (spaces-1)
+                    values += " "*spaces + "$" + " "*(spaces-1)
+                    balance += " "*spaces + "$" + " "*(spaces-1)
                     queue[sig] += [None, None]
             queue[act] = []
-            st += "\n"
+            values += "\n"
+            balance += '\n'
             act, sig = sig, act
+        st += "\tValues: {\n" + values + "\t}\n\tBalance: {\n" + balance + "\t}\n"
         st += "}"
         return st
