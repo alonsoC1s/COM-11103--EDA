@@ -6,7 +6,8 @@ from Movie import *
 
 sorting = Sorting()
 sorting_algorithms = [('mergesort', sorting.mergesort), ('quicksort', sorting.quicksort),
-                      ('bubblesort', Sorting().bubblesort), ('selectionsort', Sorting().selectionsort)]
+                      ('bubblesort', sorting.bubblesort), ('selectionsort', sorting.selectionsort),
+                      ('insertionsort', sorting.insertionsort)]
 
 file = open('movie_titles2.txt', 'r')
 movies = []
@@ -34,19 +35,19 @@ def run_sorting_algorithms(arr, namePlot):
     plotly.offline.plot({
         'data': data_time,
         'layout': Layout(title=namePlot, showlegend=True, xaxis=dict(title='Número de datos'), yaxis=dict(title='Tiempo (s)'))
-    }, filename='movies_time_{}.html'.format(namePlot))
+    }, filename='movies_time_{}.html'.format(namePlot.lower().replace(" ", "_")))
 
     plotly.offline.plot({
         'data': data_comparisons,
         'layout': Layout(title=namePlot, showlegend=True, xaxis=dict(title='Número de datos'), yaxis=dict(title='Número de comparaciones'))
-    }, filename='movies_number_comparisons_{}.html'.format(namePlot))
+    }, filename='movies_number_comparisons_{}.html'.format(namePlot.lower().replace(" ", "_")))
 
 
 movies.sort()
-run_sorting_algorithms(movies, 'datos_ordenados')
+run_sorting_algorithms(movies, 'Datos Ordenados')
 
 movies.reverse()
-run_sorting_algorithms(movies, 'orden_inverso')
+run_sorting_algorithms(movies, 'Orden Inverso')
 
 random.shuffle(movies)
-run_sorting_algorithms(movies, 'orden_aleatorio')
+run_sorting_algorithms(movies, 'Orden Aleatorio')

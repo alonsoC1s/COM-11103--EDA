@@ -8,11 +8,11 @@ class Sorting:
 
     def bubblesort(self, arr):
         comparisons = 0
-        for i in range(len(arr)):
-            for j in range(i + 1, len(arr)):
+        for i in range(len(arr) - 1, 0, -1):
+            for j in range(i):
                 comparisons += 1
-                if arr[j] < arr[i]:
-                    self.swap(i, j, arr)
+                if arr[j+1] < arr[j]:
+                    self.swap(j, j+1, arr)
         return comparisons
 
     def __quicksort(self, l, r, arr):
@@ -35,6 +35,17 @@ class Sorting:
         return self.__quicksort(0, len(arr) - 1, arr)
 
     def selectionsort(self, arr):
+        comparisons = 0
+        for i in range(len(arr)):
+            idMin = i
+            for j in range(i + 1, len(arr)):
+                comparisons += 1
+                if arr[j] < arr[idMin]:
+                    idMin = j
+            self.swap(i, idMin, arr)
+        return comparisons
+
+    def insertionsort(self, arr):
         comparisons = 0
         for i in range(len(arr)):
             j = i
