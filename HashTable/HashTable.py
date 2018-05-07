@@ -7,7 +7,7 @@ class HashTable:
         self.cnt = 0
 
     def resize(self):
-        newArr = [None] * (len(self.arr) * 2)
+        newArr = [None] * (len(self.arr)*2 + 1)
 
         for head in self.arr:
             it = head
@@ -61,9 +61,12 @@ class HashTable:
         res = ''
         for list in self.arr:
             res += '{'
-            it = list
-            while it is not None:
-                res += str(it.dato) + ','
+            if list is not None:
+                it = list
+                res += str(it.dato)
                 it = it.next
+                while it is not None:
+                    res += ', ' + str(it.dato)
+                    it = it.next
             res += '}\n'
         return res

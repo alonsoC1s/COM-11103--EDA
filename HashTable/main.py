@@ -2,12 +2,17 @@ from HashTable import *
 
 
 def insert(table, *args):
-    for x in args:
+    for x in args[0]:
         table.insert(x)
 
 
+file = open('Keywords.txt', 'r')
+palabras = file.read().split('\n')
 h = HashTable()
-insert(h, 'Juan', 'Iñaki', 'Cabo', 'Carlos', 'Sigler')
+
+for p in palabras:
+	h.insert(p)
+
 print(h)
 
 checa = ["Cabo", "Cabito"]

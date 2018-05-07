@@ -59,8 +59,9 @@ class SkipList:
         while h >= 0:
             if it.adj[h] == self.tail or it.adj[h].key > key:
                 h -= 1
-            elif it.adj[h] == target:
-                it.join(target.adj[h], h)
+            elif it.adj[h].key == key:
+                if it.adj[h] == target:
+                    it.join(target.adj[h], h)
                 h -= 1
             else:
                 it = it.adj[h]
